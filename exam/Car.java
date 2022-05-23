@@ -42,7 +42,7 @@ public class Car {
     }
 
     public static void main(String[] args) {
-        Car c= new Car();
+        Car c= new Car("hariar","tata","black",Engine);
         c.setModel("nexon");
         c.setcompanyname("tata");
         c.setcolour("black");
