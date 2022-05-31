@@ -3,30 +3,32 @@ package Exam2.q3;
 public class Ola {
 
     public Car bookCar(int numberOfPassenger, int numberOfKMs){
-            if(numberOfPassenger<=3){
-                HatchBack h1=new HatchBack();
-               double res=h1.farePerKm*numberOfKMs;
-                System.out.println(res);
+        if(numberOfKMs<=3){
+            HatchBack h1=new HatchBack();
+           h1.setNumberOfKms(numberOfKMs);
+           h1.setNumberOfPassenger(numberOfPassenger);
 
+            return h1;
+        }else{
 
-            }else{
-                Sedan s1=new Sedan();
-                System.out.println(s1.farePerKm*numberOfKMs);
-            }
-
-        return null;
+            Sedan s1=new Sedan();
+            s1.setNumberOfKms(numberOfKMs);
+            s1.setNumberOfPassenger(numberOfPassenger);
+        return s1;
+        }
     }
-//    public Car calculateBill(Car car){
-//
-//
-//    }
+    public int calculateBill(Car car){
+        if(car instanceof Sedan){
+            Sedan mysea=(Sedan) car;
+            int total=mysea.getNumberOfKms()*mysea.farePerKm;
+            return total;
+        }else {
+            HatchBack myhac=(HatchBack) car;
+            int total=myhac.getNumberOfKms()*myhac.farePerKm;
+            return total;
+        }
 
-    public static void main(String[] args) {
-        Ola myola=new Ola();
-        Car myCar = myola.bookCar(7,3);
-//        int res = myola.calculateBill(myCar);
-
-//        System.out.println("The total fare amount is"+ res);
     }
+
 
 }
