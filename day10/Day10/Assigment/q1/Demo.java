@@ -3,17 +3,10 @@ package Day10.Assigment.q1;
 public class Demo {
     public Hotel provideFood(int amount){
             if(amount>1000){
-                Hotel h1=new TajHotel();
-                h1.chickenBiryani();
-                h1.masalaDosa();
-                TajHotel t1=new TajHotel();
-                t1.welcomeDrink();
-                return h1;
+
+                return new TajHotel();
             }else if(amount>200 && amount<1000){
-                Hotel h2=new RoadSideHotel();
-                h2.masalaDosa();
-                h2.chickenBiryani();
-                return h2;
+                return new RoadSideHotel();
             }else{
                 return null;
             }
@@ -22,8 +15,17 @@ public class Demo {
 
     public static void main(String[] args) {
         Demo d1=new Demo();
-        d1.provideFood(4000);
-
+       Hotel hotel= d1.provideFood(400);
+       if(hotel!=null){
+           hotel.chickenBiryani();
+           hotel.masalaDosa();
+        if(hotel instanceof TajHotel){
+            TajHotel taj  =(TajHotel)hotel;
+            taj.welcomeDrink();
+        }
+       }
+       else{
+           System.out.println("ammount should be grater than 200");
+       }
     }
-
 }
